@@ -10,138 +10,40 @@ led1.off()
 led2.off()
 led3.off()
 
+# Light
+def light(led, duration):
+	led.on()
+	sleep(duration)
+	led.off()
+	sleep(0.1)
+
+	
 # Mary Had A Little Lamb:
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
+light(led3, 0.2)
+light(led2, 0.2)
+light(led1, 0.2)
+light(led2, 0.2)
+light(led3, 0.2)
+light(led3, 0.2)
+light(led3, 0.4)
+light(led2, 0.2)
+light(led2, 0.2)
+light(led2, 0.4)
+light(led3, 0.2)
+light(led3, 0.2)
+light(led3, 0.4)
 
-led2.on()
-sleep(0.2)
-led2.off()
-sleep(0.1)
+light(led3, 0.2)
+light(led2, 0.2)
+light(led1, 0.2)
+light(led2, 0.2)
+light(led3, 0.2)
+light(led3, 0.2)
+light(led3, 0.2)
+light(led3, 0.2)
+light(led2, 0.2)
+light(led2, 0.2)
+light(led3, 0.2)
+light(led2, 0.2)
+light(led1, 0.8)
 
-led1.on()
-sleep(0.2)
-led1.off()
-sleep(0.1)
-
-led2.on()
-sleep(0.2)
-led2.off()
-sleep(0.1)
-
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
-
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
-
-led3.on()
-sleep(0.4)
-led3.off()
-sleep(0.1)
-
-
-led2.on()
-sleep(0.2)
-led2.off()
-sleep(0.1)
-
-led2.on()
-sleep(0.2)
-led2.off()
-sleep(0.1)
-
-led2.on()
-sleep(0.4)
-led2.off()
-sleep(0.1)
-
-
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
-
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
-
-led3.on()
-sleep(0.4)
-led3.off()
-sleep(0.1)
-
-
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
-
-led2.on()
-sleep(0.2)
-led2.off()
-sleep(0.1)
-
-led1.on()
-sleep(0.2)
-led1.off()
-sleep(0.1)
-
-led2.on()
-sleep(0.2)
-led2.off()
-sleep(0.1)
-
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
-
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
-
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
-
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
-
-led2.on()
-sleep(0.2)
-led2.off()
-sleep(0.1)
-
-led2.on()
-sleep(0.2)
-led2.off()
-sleep(0.1)
-
-led3.on()
-sleep(0.2)
-led3.off()
-sleep(0.1)
-
-led2.on()
-sleep(0.2)
-led2.off()
-sleep(0.1)
-
-led1.on()
-sleep(0.8)
-led1.off()
-sleep(0.1)
-
-sleep(1.0)
