@@ -1,18 +1,23 @@
 # Import the libraries we'll need:
 from gpiozero import LED
 from time import sleep
+import musicalbeeps
 
 # Constants:
 DURATION_MULTIPLIER_INCREMENT = 0.02
 MIN_DURATION_MULTIPLIER = 0.10
 MAX_DURATION_MULTIPLIER = 0.50
+PITCH_LIGHT_DELAY = 0.2
 
 # Variables:
 leds = [ LED(2), LED(3), LED(4) ]
+pitches = ['C', 'D', 'E'] # must be the same size as `leds`, above
 duration_multiplier = 0.2
 rest = 0.1
 
 # Code:
+
+player = musicalbeeps.Player(volume = 1.0)
 
 # Turn everything off
 def init():
@@ -23,8 +28,9 @@ def init():
 def light(led_number, duration):
 	# Turn the LED on:
 	led_index = led_number - 1
+	player.play_note(pitches[led_index], duration * duration_multiplier)
+	sleep(PITCH_LIGHT_DELAY)
 	leds[led_index].on()
-
 	# Leave it on for the right amount of time:
 	sleep(duration * duration_multiplier)
 	

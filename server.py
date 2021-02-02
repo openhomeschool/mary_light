@@ -2,7 +2,11 @@
 import socket # more (very detailed) information at https://docs.python.org/3/library/select.html
 import select # more (very detailed) information at https://docs.python.org/3/library/socket.html
 import sys # more (very detailed) information at https://docs.python.org/3/library/sys.html
-from thread import start_new_thread
+
+if sys.version_info[0] < 3: # Python version 2 is being used ("2 is less than 3")...
+	from thread import start_new_thread
+else: # Python version 3 is being used...
+	from threading import Thread
 
 import main
 
@@ -23,7 +27,7 @@ def create_server():
 
 def client_thread(connection, address): 
 	# Send a "welcome" message to the client who just connected to us, which started this thread:
-	connection.send("Welcome to the 'Mary server'!  Type 'b' (then Enter) to begin, 'f' (then Enter) for 'faster' playback, or 's' (then Enter) for 'slower' playback.")
+	connection.send("Welcome to the 'Mary server'!  Type 'b' (then Enter) to begin, 'f' (then Enter) for 'faster' playback, or 's' (then Enter) for 'slower' playback.".encode())
 
 	# Loop until this connection dies: 
 	while True: # 'break', below, will finally break us out of this (otherwise 'forever') loop
@@ -74,7 +78,10 @@ while True:
 	print(address[0] + " connected")
 
 	# Start the thread that will process this connection's messages until it is finally closed (by the user, or by the server shut-down):
-	start_new_thread(client_thread, (connection, address))
+	if sys.version_info[0] < 3: # Python version 2 is being used...
+		start_new_thread(client_thread, (connection, address))
+	else: # Python version 3 is being used...
+		Thread(target = client_thread, args = (connection, address)).start()
 
 server.close() 
 
